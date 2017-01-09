@@ -1,7 +1,7 @@
 version: '2'
 services:
   rollout:
-    image: medianeut/docker-rollout:latest
+    image: ditchitall/rollout:latest
     build: .
     entrypoint: python rollout
     environment:
