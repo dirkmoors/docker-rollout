@@ -1,0 +1,11 @@
+version: '2'
+services:
+  rollout:
+    image: medianeut/docker-rollout:latest
+    build: .
+    entrypoint: python rollout
+    environment:
+      - DOCKERCLOUD_NAMESPACE=medianeut
+    volumes:
+      - ./src:/data/src
+      - ~/.docker/config.json:/root/.docker/config.json
