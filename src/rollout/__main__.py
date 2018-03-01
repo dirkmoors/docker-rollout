@@ -67,9 +67,10 @@ def redeploy_stack_service(
     except Exception as e:
         click.echo(str(e))
     else:
-        newrelic.notify_deployment(
-            api_key=newrelic_api_key, app_id=newrelic_app_id, app_revision=newrelic_app_revision, user=newrelic_user,
-            output_handler=click.echo)
+        if all([newrelic_api_key, newrelic_app_id, newrelic_app_revision, newrelic_user]):
+            newrelic.notify_deployment(
+                api_key=newrelic_api_key, app_id=newrelic_app_id, app_revision=newrelic_app_revision,
+                user=newrelic_user, output_handler=click.echo)
 
 
 # Main
